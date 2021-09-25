@@ -23,10 +23,6 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static("client/build"));
 // }
 
-app.get("/", (req, res) => {
-    res.send("checing if it works or not ")
-})
-
 //routes
 app.use("/user", require("./src/routes/user.routes"));
 app.use("/api", verifyJwt, require("./src/routes/todo.routes"));
