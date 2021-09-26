@@ -26,6 +26,9 @@ app.use(express.static("client/build"));
 //routes
 app.use("/user", require("./src/routes/user.routes"));
 app.use("/api", verifyJwt, require("./src/routes/todo.routes"));
+app.get("*", (req, res)=>{
+    res.redirect("/");
+})
 
 //error
 app.use((req, res, next) => {
